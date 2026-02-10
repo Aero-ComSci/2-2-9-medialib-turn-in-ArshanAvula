@@ -17,26 +17,51 @@ public class MediaLib
 
   public void addBook(Book b)
   {
-    book = b;
+    if (book == null)
+    {
+      book = b;
+      numEntries++;
+      numBooks++;
+    } 
+    else
+      System.out.println("Cannot add a new book: A book already exists");
   }
-
+  
   public void addMovie(Movie m)
   {
-    movie = m;
+    if (movie == null)
+    {
+      movie = m;
+      numEntries++;
+      numMovies++;
+    }
+    else
+      System.out.println("Cannot add a new movie: A movie already exists");
   }
-
-  public void addSong(Song s){
-    song = s;
+  
+  public void addSong(Song s)
+  {
+    if (song == null)
+    {
+      song = s;
+      numEntries++;
+      numSongs++;
+    }
+    else
+      System.out.println("Cannot add a new song: A song already exists");
   }
 
   public String toString() 
   {
-    //modify to show the attributes
-
-    String info = "This book has been added: " + book;
-    info += "\nThis movie has been added: " + movie;
-    info += "\nThis song has been added: " + song;
+    String info = "";
     
+    if (book != null)
+      info += "Book: " + book + "\n";
+    if (movie != null)
+      info += "Movie: " + movie + "\n";
+    if (song != null)
+      info += "Song: " + song + "\n";
+ 
     return info;
   }
 
